@@ -1,5 +1,6 @@
 package no.jlwcrews.firstspringboot;
 
+import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class PartsController {
     }
 
     @DeleteMapping()
-    public void deletePart(@PathVariable String name) {
-
+    public void deletePart(@RequestBody Part part) {
+        partsService.deletePart(part);
     }
 }

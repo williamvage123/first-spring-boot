@@ -8,8 +8,12 @@ import java.util.List;
 @Service
 public class PartsService {
 
+    private final PartsRepository partsRepository;
+
     @Autowired
-    private PartsRepository partsRepository;
+    public PartsService(PartsRepository partsRepository) {
+        this.partsRepository = partsRepository;
+    }
 
     public List<Part> getParts(){
         return partsRepository.getParts();
@@ -17,5 +21,9 @@ public class PartsService {
 
     public void addPart(Part part){
         partsRepository.addPart(part);
+    }
+
+    public void deletePart(Part part) {
+        partsRepository.deletePart(part);
     }
 }

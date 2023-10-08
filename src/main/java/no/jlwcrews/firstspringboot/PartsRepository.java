@@ -1,11 +1,17 @@
 package no.jlwcrews.firstspringboot;
 
+import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 @Component
 public class PartsRepository {
 
+    private final Logger logger = LoggerFactory.getLogger(PartsRepository.class);
+
+    @Getter
     private ArrayList<Part> parts = new ArrayList<>();
 
     public PartsRepository() {
@@ -14,11 +20,15 @@ public class PartsRepository {
     }
 
 
-    public ArrayList<Part> getParts() {
-        return parts;
-    }
-
     public void addPart(Part part) {
         parts.add(part);
+    }
+
+    public void deletePart(Part part) {
+        try {
+            parts.remove(part);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
     }
 }

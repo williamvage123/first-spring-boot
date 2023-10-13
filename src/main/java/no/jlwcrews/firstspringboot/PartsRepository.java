@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @Component
 public class PartsRepository {
 
-    private final Logger logger = LoggerFactory.getLogger(PartsRepository.class);
+    private final Logger log = LoggerFactory.getLogger(PartsRepository.class);
 
     @Getter
     private ArrayList<Part> parts = new ArrayList<>();
@@ -28,7 +28,7 @@ public class PartsRepository {
         try {
             parts.remove(part);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 }

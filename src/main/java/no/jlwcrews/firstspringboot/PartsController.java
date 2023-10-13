@@ -21,7 +21,9 @@ public class PartsController {
 
     @GetMapping()
     public ResponseEntity<List<Part>> getParts() {
+        System.out.println("Hello");
         return ResponseEntity.ok(partsService.getParts());
+
 
     }
 
